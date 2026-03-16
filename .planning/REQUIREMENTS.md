@@ -87,17 +87,46 @@
 
 ## 可追溯性
 
-待路线图创建后填充。
-
 | 需求 | 阶段 | 状态 |
 |------|------|------|
-| ... | ... | 待定 |
+| CORE-01 | Phase 1 | Pending |
+| CORE-02 | Phase 1 | Pending |
+| CORE-03 | Phase 1 | Pending |
+| CORE-04 | Phase 1 | Pending |
+| SCEN-01 | Phase 1 | Pending |
+| SCEN-02 | Phase 1 | Pending |
+| SCEN-03 | Phase 1 | Pending |
+| SCEN-04 | Phase 1 | Pending |
+| SCEN-05 | Phase 1 | Pending |
+| AGENT-01 | Phase 2 | Pending |
+| AGENT-02 | Phase 2 | Pending |
+| AGENT-03 | Phase 2 | Pending |
+| AGENT-04 | Phase 2 | Pending |
+| AGENT-05 | Phase 2 | Pending |
+| AGENT-06 | Phase 2 | Pending |
+| AGENT-07 | Phase 2 | Pending |
+| GEN-01 | Phase 3 | Pending |
+| GEN-02 | Phase 3 | Pending |
+| GEN-03 | Phase 3 | Pending |
+| GEN-04 | Phase 3 | Pending |
+| GEN-05 | Phase 3 | Pending |
+| GEN-06 | Phase 3 | Pending |
+| ADPT-01 | Phase 4 | Pending |
+| ADPT-02 | Phase 4 | Pending |
+| ADPT-03 | Phase 4 | Pending |
+| ADPT-04 | Phase 4 | Pending |
+| ADPT-05 | Phase 4 | Pending |
+| PROJ-01 | Phase 5 | Pending |
+| PROJ-02 | Phase 5 | Pending |
+| PROJ-03 | Phase 5 | Pending |
+| PROJ-04 | Phase 5 | Pending |
+| PROJ-05 | Phase 5 | Pending |
 
 **覆盖率：**
 - v1 需求：32 total
-- 已映射到阶段：0
-- 未映射：32 ⚠️
+- 已映射到阶段：32
+- 未映射：0
 
 ---
 *需求定义：2026-03-16*
-*最后更新：2026-03-16 初始定义后*
+*最后更新：2026-03-16 路线图创建后*
