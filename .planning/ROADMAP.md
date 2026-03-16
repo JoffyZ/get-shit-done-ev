@@ -30,10 +30,13 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. Existing software engineering logic is packaged as scenarios/software-eng/ and registers its commands
   4. User can see available scenarios and their commands via inspection or help
   5. Scenario packages define their structure via manifest.json (workflows/, agents/, templates/)
-**Plans**: TBD
+**Plans**: 4 plans
 
 Plans:
-- TBD
+- [ ] 01-01-PLAN.md — Design architecture and scenario system interfaces
+- [ ] 01-02-PLAN.md — Extract core engine modules (engine, state, scheduler)
+- [ ] 01-03-PLAN.md — Package software-eng workflows as first scenario
+- [ ] 01-04-PLAN.md — Implement scenario loader and hot-switching
 
 ### Phase 2: Agent Creator
 **Goal**: Users can design, code, test, and deploy AI agents using a structured workflow
@@ -102,7 +105,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation | 0/TBD | Not started | - |
+| 1. Foundation | 0/4 | Ready to execute | - |
 | 2. Agent Creator | 0/TBD | Not started | - |
 | 3. Scenario Generator | 0/TBD | Not started | - |
 | 4. Cross-tool Support | 0/TBD | Not started | - |
