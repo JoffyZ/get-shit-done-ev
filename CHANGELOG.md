@@ -7,11 +7,61 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ## [Unreleased]
 
 ### Added
-- **Node repair operator** (`workflows/node-repair.md`) — autonomous recovery when task verification fails. Instead of immediately asking the user, the executor attempts structured repair: RETRY (different approach), DECOMPOSE (break into sub-tasks), or PRUNE (skip with justification). Only escalates to the user when the repair budget is exhausted or an architectural decision is needed. Repair budget defaults to 2 attempts per task; configurable via `workflow.node_repair_budget`. Disable entirely with `workflow.node_repair: false` to restore original behavior.
+- **Antigravity runtime support** — Full installation support for the Antigravity AI agent runtime (`--antigravity`), alongside Claude Code, OpenCode, Gemini, Codex, and Copilot.
 
 ### Fixed
-- `/gsd:new-milestone` no longer overwrites `workflow.research` config — milestone research decision is now per-invocation, persistent preference only changes via `/gsd:settings`
-- `/gsd:health --repair` now creates config.json with correct nested `workflow` structure matching `config-ensure-section` canonical format
+- **Antigravity skills** — `processAttribution` was missing from `copyCommandsAsAntigravitySkills`, causing SKILL.md files to be written without commit attribution metadata.
+- **Copilot install tests** — updated agent count (12→15) and CLI assertions to account for the three UI agents added in v1.23.0.
+
+## [1.24.0] - 2026-03-15
+
+### Added
+- **`/gsd:quick --research` flag** — Spawns focused research agent before planning, composable with `--discuss` and `--full` (#317)
+- **`inherit` model profile** for OpenCode — agents inherit the user's selected runtime model via `/model`
+- **Persistent debug knowledge base** — resolved debug sessions append to `.planning/debug/knowledge-base.md`, eliminating cold-start investigation on recurring issues
+- **Programmatic `/gsd:set-profile`** — runs as a script instead of LLM-driven workflow, executes in seconds instead of 30-40s
+
+### Fixed
+- ROADMAP.md searches scoped to current milestone — multi-milestone projects no longer match phases from archived milestones
+- OpenCode agent frontmatter conversion — agents get correct `name:`, `model: inherit`, `mode: subagent`
+- `opencode.jsonc` config files respected during install (previously only `.json` was detected) (#1053)
+- Windows installer crash on EPERM/EACCES when scanning protected directories (#964)
+- `gsd-tools.cjs` uses absolute paths in all install types (#820)
+- Invalid `skills:` frontmatter removed from UI agent files
+
+## [1.23.0] - 2026-03-15
+
+### Added
+- `/gsd:ui-phase` + `/gsd:ui-review` — UI design contract generation and retroactive 6-pillar visual audit for frontend phases (closes #986)
+- `/gsd:stats` — project statistics dashboard: phases, plans, requirements, git metrics, and timeline
+- **Copilot CLI** runtime support — install with `--copilot`, maps Claude Code tools to GitHub Copilot tools
+- **`gsd-autonomous` skill** for Codex runtime — enables autonomous GSD execution
+- **Node repair operator** — autonomous recovery when task verification fails: RETRY, DECOMPOSE, or PRUNE before escalating to user. Configurable via `workflow.node_repair_budget` (default: 2 attempts). Disable with `workflow.node_repair: false`
+- Mandatory `read_first` and `acceptance_criteria` sections in plans to prevent shallow execution
+- Mandatory `canonical_refs` section in CONTEXT.md for traceable decisions
+- Quick mode uses `YYMMDD-xxx` timestamp IDs instead of auto-increment numbers
+
+### Changed
+- `/gsd:discuss-phase` supports explicit `--batch` mode for grouped question intake
+
+### Fixed
+- `/gsd:new-milestone` no longer resets `workflow.research` config during milestone transitions
+- `/gsd:update` is runtime-aware and targets the correct runtime directory
+- Phase-complete properly updates REQUIREMENTS.md traceability (closes #848)
+- Auto-advance no longer triggers without `--auto` flag (closes #1026, #932)
+- `--auto` flag correctly skips interactive discussion questions (closes #1025)
+- Decimal phase numbers correctly padded in init.cjs (closes #915)
+- Empty-answer validation guards added to discuss-phase (closes #912)
+- Tilde paths in templates prevent PII leak in `.planning/` files (closes #987)
+- Invalid `commit-docs` command replaced with `commit` in workflows (closes #968)
+- Uninstall mode indicator shown in banner output (closes #1024)
+- WSL + Windows Node.js mismatch detected with user warning (closes #1021)
+- Deprecated Codex config keys removed to fix UI instability
+- Unsupported Gemini agent `skills` frontmatter stripped for compatibility
+- Roadmap `complete` checkbox overrides `disk_status` for phase detection
+- Plan-phase Nyquist validation works when research is disabled (closes #1002)
+- Valid Codex agent TOML emitted by installer
+- Escape characters corrected in grep commands
 
 ## [1.22.4] - 2026-03-03
 
@@ -1458,7 +1508,9 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - YOLO mode for autonomous execution
 - Interactive mode with checkpoints
 
-[Unreleased]: https://github.com/glittercowboy/get-shit-done/compare/v1.22.4...HEAD
+[Unreleased]: https://github.com/glittercowboy/get-shit-done/compare/v1.24.0...HEAD
+[1.24.0]: https://github.com/glittercowboy/get-shit-done/releases/tag/v1.24.0
+[1.23.0]: https://github.com/glittercowboy/get-shit-done/releases/tag/v1.23.0
 [1.22.4]: https://github.com/glittercowboy/get-shit-done/releases/tag/v1.22.4
 [1.22.3]: https://github.com/glittercowboy/get-shit-done/releases/tag/v1.22.3
 [1.22.2]: https://github.com/glittercowboy/get-shit-done/releases/tag/v1.22.2
