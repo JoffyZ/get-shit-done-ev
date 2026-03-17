@@ -149,11 +149,129 @@ function getWorkflowPath(commandName) {
   return cmdEntry ? cmdEntry.workflow : null;
 }
 
+/**
+ * registerCommands(scenarioName, targetDir)
+ *
+ * Generate command files in .claude/commands/ from scenario manifest.
+ *
+ * @param {string} scenarioName - Scenario to register
+ * @param {string} targetDir - Path to .claude/commands/ directory
+ * @returns {object} { registered: number, errors: Array }
+ */
+function registerCommands(scenarioName, targetDir) {
+  const scenario = scenarioRegistry[scenarioName];
+  if (!scenario) {
+    return { registered: 0, errors: [`Scenario ${scenarioName} not loaded`] };
+  }
+
+  const manifest = scenario.manifest;
+  const scenarioPath = scenario.path;
+  const results = { registered: 0, errors: [] };
+
+  for (const cmd of manifest.commands) {
+    try {
+      // Create namespace directory if needed
+      const namespaceDir = path.join(targetDir, cmd.namespace);
+      if (!fs.existsSync(namespaceDir)) {
+        fs.mkdirSync(namespaceDir, { recursive: true });
+      }
+
+      // Generate command file
+      const cmdFileName = `${cmd.name}.md`;
+      const cmdFilePath = path.join(namespaceDir, cmdFileName);
+      const workflowAbsPath = path.join(scenarioPath, cmd.workflow);
+
+      // Generate command file content (symlink-like reference)
+      const commandContent = `---
+name: ${cmd.namespace}:${cmd.name}
+description: ${manifest.description}
+scenario: ${scenarioName}
+workflow: ${cmd.workflow}
+---
+
+This command is provided by the **${scenarioName}** scenario.
+
+Workflow: \`${cmd.workflow}\`
+
+Execute with: \`/${cmd.namespace}:${cmd.name}\`
+`;
+
+      fs.writeFileSync(cmdFilePath, commandContent);
+
+      // Track in command registry
+      commandRegistry[`${cmd.namespace}:${cmd.name}`] = {
+        scenario: scenarioName,
+        workflow: workflowAbsPath
+      };
+
+      results.registered++;
+
+    } catch (error) {
+      results.errors.push(`${cmd.name}: ${error.message}`);
+    }
+  }
+
+  return results;
+}
+
+/**
+ * hotSwitch(scenarioName, targetDir)
+ *
+ * Hot-switch to a different scenario without restart.
+ *
+ * @param {string} scenarioName - Scenario to activate
+ * @param {string} targetDir - Path to .claude/commands/
+ * @returns {object} { success: boolean, message: string }
+ */
+function hotSwitch(scenarioName, targetDir) {
+  const scenario = scenarioRegistry[scenarioName];
+  if (!scenario) {
+    return { success: false, message: `Scenario ${scenarioName} not loaded` };
+  }
+
+  // Clear current command registrations
+  if (fs.existsSync(targetDir)) {
+    const namespaces = fs.readdirSync(targetDir, { withFileTypes: true })
+      .filter(dirent => dirent.isDirectory())
+      .map(dirent => dirent.name);
+
+    for (const ns of namespaces) {
+      const nsDir = path.join(targetDir, ns);
+      const files = fs.readdirSync(nsDir);
+      for (const file of files) {
+        fs.unlinkSync(path.join(nsDir, file));
+      }
+    }
+  }
+
+  // Clear command registry
+  for (const key in commandRegistry) {
+    delete commandRegistry[key];
+  }
+
+  // Register new scenario commands
+  const regResult = registerCommands(scenarioName, targetDir);
+
+  if (regResult.errors.length > 0) {
+    return {
+      success: false,
+      message: `Errors registering ${scenarioName}: ${regResult.errors.join(', ')}`
+    };
+  }
+
+  return {
+    success: true,
+    message: `Switched to ${scenarioName} (${regResult.registered} commands registered)`
+  };
+}
+
 module.exports = {
   loadScenarios,
-  validateManifest,
+  registerCommands,
   getScenario,
   getWorkflowPath,
+  hotSwitch,
+  validateManifest,
   scenarioRegistry,
   commandRegistry
 };
