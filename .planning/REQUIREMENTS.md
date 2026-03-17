@@ -16,9 +16,9 @@
 
 - [x] **SCEN-01**: 定义场景包目录结构（workflows/、agents/、templates/）
 - [x] **SCEN-02**: 定义 manifest.json 规范（入口命令、核心概念、Agent 映射）
-- [ ] **SCEN-03**: 实现场景包加载机制（读取 manifest、注册命令）
+- [x] **SCEN-03**: 实现场景包加载机制（读取 manifest、注册命令）
 - [x] **SCEN-04**: 将现有软件工程逻辑包装为 scenarios/software-eng/
-- [ ] **SCEN-05**: 场景包热切换支持（不需要重启工具）
+- [x] **SCEN-05**: 场景包热切换支持（不需要重启工具）
 
 ### Agent 创造场景（Agent Creator）
 
@@ -95,9 +95,9 @@
 | CORE-04 | Phase 1 | Complete |
 | SCEN-01 | Phase 1 | Complete |
 | SCEN-02 | Phase 1 | Complete |
-| SCEN-03 | Phase 1 | Pending |
+| SCEN-03 | Phase 1 | Complete |
 | SCEN-04 | Phase 1 | Complete |
-| SCEN-05 | Phase 1 | Pending |
+| SCEN-05 | Phase 1 | Complete |
 | AGENT-01 | Phase 2 | Pending |
 | AGENT-02 | Phase 2 | Pending |
 | AGENT-03 | Phase 2 | Pending |
