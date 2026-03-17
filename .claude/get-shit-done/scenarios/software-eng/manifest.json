@@ -1,0 +1,361 @@
+{
+  "name": "software-eng",
+  "version": "1.0.0",
+  "description": "GSD software engineering workflow (questioning → research → roadmap → execute → verify)",
+  "gsd_version": ">=1.0.0",
+  "commands": [
+    {
+      "name": "new-project",
+      "namespace": "gsd",
+      "workflow": "workflows/new-project.md"
+    },
+    {
+      "name": "plan-phase",
+      "namespace": "gsd",
+      "workflow": "workflows/plan-phase.md"
+    },
+    {
+      "name": "execute-phase",
+      "namespace": "gsd",
+      "workflow": "workflows/execute-phase.md"
+    },
+    {
+      "name": "verify-phase",
+      "namespace": "gsd",
+      "workflow": "workflows/verify-phase.md"
+    },
+    {
+      "name": "research-phase",
+      "namespace": "gsd",
+      "workflow": "workflows/research-phase.md"
+    },
+    {
+      "name": "discuss-phase",
+      "namespace": "gsd",
+      "workflow": "workflows/discuss-phase.md"
+    },
+    {
+      "name": "discovery-phase",
+      "namespace": "gsd",
+      "workflow": "workflows/discovery-phase.md"
+    },
+    {
+      "name": "ui-phase",
+      "namespace": "gsd",
+      "workflow": "workflows/ui-phase.md"
+    },
+    {
+      "name": "complete-milestone",
+      "namespace": "gsd",
+      "workflow": "workflows/complete-milestone.md"
+    },
+    {
+      "name": "new-milestone",
+      "namespace": "gsd",
+      "workflow": "workflows/new-milestone.md"
+    },
+    {
+      "name": "plan-milestone-gaps",
+      "namespace": "gsd",
+      "workflow": "workflows/plan-milestone-gaps.md"
+    },
+    {
+      "name": "audit-milestone",
+      "namespace": "gsd",
+      "workflow": "workflows/audit-milestone.md"
+    },
+    {
+      "name": "add-phase",
+      "namespace": "gsd",
+      "workflow": "workflows/add-phase.md"
+    },
+    {
+      "name": "insert-phase",
+      "namespace": "gsd",
+      "workflow": "workflows/insert-phase.md"
+    },
+    {
+      "name": "remove-phase",
+      "namespace": "gsd",
+      "workflow": "workflows/remove-phase.md"
+    },
+    {
+      "name": "pause-work",
+      "namespace": "gsd",
+      "workflow": "workflows/pause-work.md"
+    },
+    {
+      "name": "resume-project",
+      "namespace": "gsd",
+      "workflow": "workflows/resume-project.md"
+    },
+    {
+      "name": "add-todo",
+      "namespace": "gsd",
+      "workflow": "workflows/add-todo.md"
+    },
+    {
+      "name": "check-todos",
+      "namespace": "gsd",
+      "workflow": "workflows/check-todos.md"
+    },
+    {
+      "name": "map-codebase",
+      "namespace": "gsd",
+      "workflow": "workflows/map-codebase.md"
+    },
+    {
+      "name": "autonomous",
+      "namespace": "gsd",
+      "workflow": "workflows/autonomous.md"
+    },
+    {
+      "name": "validate-phase",
+      "namespace": "gsd",
+      "workflow": "workflows/validate-phase.md"
+    },
+    {
+      "name": "ui-review",
+      "namespace": "gsd",
+      "workflow": "workflows/ui-review.md"
+    },
+    {
+      "name": "diagnose-issues",
+      "namespace": "gsd",
+      "workflow": "workflows/diagnose-issues.md"
+    },
+    {
+      "name": "cleanup",
+      "namespace": "gsd",
+      "workflow": "workflows/cleanup.md"
+    },
+    {
+      "name": "stats",
+      "namespace": "gsd",
+      "workflow": "workflows/stats.md"
+    },
+    {
+      "name": "progress",
+      "namespace": "gsd",
+      "workflow": "workflows/progress.md"
+    },
+    {
+      "name": "settings",
+      "namespace": "gsd",
+      "workflow": "workflows/settings.md"
+    },
+    {
+      "name": "help",
+      "namespace": "gsd",
+      "workflow": "workflows/help.md"
+    },
+    {
+      "name": "health",
+      "namespace": "gsd",
+      "workflow": "workflows/health.md"
+    },
+    {
+      "name": "update",
+      "namespace": "gsd",
+      "workflow": "workflows/update.md"
+    },
+    {
+      "name": "quick",
+      "namespace": "gsd",
+      "workflow": "workflows/quick.md"
+    },
+    {
+      "name": "add-tests",
+      "namespace": "gsd",
+      "workflow": "workflows/add-tests.md"
+    },
+    {
+      "name": "node-repair",
+      "namespace": "gsd",
+      "workflow": "workflows/node-repair.md"
+    },
+    {
+      "name": "transition",
+      "namespace": "gsd",
+      "workflow": "workflows/transition.md"
+    },
+    {
+      "name": "list-phase-assumptions",
+      "namespace": "gsd",
+      "workflow": "workflows/list-phase-assumptions.md"
+    }
+  ],
+  "agents": [
+    {
+      "role": "gsd-planner",
+      "workflow": "workflows/plan-phase.md",
+      "model_profile_key": "gsd-planner"
+    },
+    {
+      "role": "gsd-roadmapper",
+      "workflow": "workflows/new-project.md",
+      "model_profile_key": "gsd-roadmapper"
+    },
+    {
+      "role": "gsd-executor",
+      "workflow": "workflows/execute-plan.md",
+      "model_profile_key": "gsd-executor"
+    },
+    {
+      "role": "gsd-phase-researcher",
+      "workflow": "workflows/research-phase.md",
+      "model_profile_key": "gsd-phase-researcher"
+    },
+    {
+      "role": "gsd-project-researcher",
+      "workflow": "workflows/research-phase.md",
+      "model_profile_key": "gsd-project-researcher"
+    },
+    {
+      "role": "gsd-research-synthesizer",
+      "workflow": "workflows/research-phase.md",
+      "model_profile_key": "gsd-research-synthesizer"
+    },
+    {
+      "role": "gsd-codebase-mapper",
+      "workflow": "workflows/map-codebase.md",
+      "model_profile_key": "gsd-codebase-mapper"
+    },
+    {
+      "role": "gsd-verifier",
+      "workflow": "workflows/verify-phase.md",
+      "model_profile_key": "gsd-verifier"
+    },
+    {
+      "role": "gsd-plan-checker",
+      "workflow": "workflows/plan-phase.md",
+      "model_profile_key": "gsd-plan-checker"
+    },
+    {
+      "role": "gsd-integration-checker",
+      "workflow": "workflows/verify-phase.md",
+      "model_profile_key": "gsd-integration-checker"
+    },
+    {
+      "role": "gsd-nyquist-auditor",
+      "workflow": "workflows/verify-phase.md",
+      "model_profile_key": "gsd-nyquist-auditor"
+    },
+    {
+      "role": "gsd-ui-researcher",
+      "workflow": "workflows/ui-review.md",
+      "model_profile_key": "gsd-ui-researcher"
+    },
+    {
+      "role": "gsd-ui-checker",
+      "workflow": "workflows/ui-review.md",
+      "model_profile_key": "gsd-ui-checker"
+    },
+    {
+      "role": "gsd-ui-auditor",
+      "workflow": "workflows/ui-review.md",
+      "model_profile_key": "gsd-ui-auditor"
+    },
+    {
+      "role": "gsd-debugger",
+      "workflow": "workflows/diagnose-issues.md",
+      "model_profile_key": "gsd-debugger"
+    }
+  ],
+  "templates": [
+    {
+      "name": "project",
+      "path": "templates/project.md"
+    },
+    {
+      "name": "requirements",
+      "path": "templates/requirements.md"
+    },
+    {
+      "name": "roadmap",
+      "path": "templates/roadmap.md"
+    },
+    {
+      "name": "plan",
+      "path": "templates/plan.md"
+    },
+    {
+      "name": "summary",
+      "path": "templates/summary.md"
+    },
+    {
+      "name": "context",
+      "path": "templates/context.md"
+    },
+    {
+      "name": "discovery",
+      "path": "templates/discovery.md"
+    },
+    {
+      "name": "verification",
+      "path": "templates/verification.md"
+    },
+    {
+      "name": "uat",
+      "path": "templates/uat.md"
+    },
+    {
+      "name": "milestone-retrospective",
+      "path": "templates/milestone-retrospective.md"
+    }
+  ],
+  "references": [
+    {
+      "name": "questioning",
+      "path": "references/questioning.md"
+    },
+    {
+      "name": "git-integration",
+      "path": "references/git-integration.md"
+    },
+    {
+      "name": "git-planning-commit",
+      "path": "references/git-planning-commit.md"
+    },
+    {
+      "name": "model-profiles",
+      "path": "references/model-profiles.md"
+    },
+    {
+      "name": "model-profile-resolution",
+      "path": "references/model-profile-resolution.md"
+    },
+    {
+      "name": "verification-patterns",
+      "path": "references/verification-patterns.md"
+    },
+    {
+      "name": "tdd",
+      "path": "references/tdd.md"
+    },
+    {
+      "name": "checkpoints",
+      "path": "references/checkpoints.md"
+    },
+    {
+      "name": "planning-config",
+      "path": "references/planning-config.md"
+    },
+    {
+      "name": "continuation-format",
+      "path": "references/continuation-format.md"
+    },
+    {
+      "name": "phase-argument-parsing",
+      "path": "references/phase-argument-parsing.md"
+    },
+    {
+      "name": "decimal-phase-calculation",
+      "path": "references/decimal-phase-calculation.md"
+    },
+    {
+      "name": "ui-brand",
+      "path": "references/ui-brand.md"
+    }
+  ]
+}
