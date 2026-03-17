@@ -33,8 +33,8 @@ Decimal phases appear between their surrounding integers in numeric order.
 **Plans**: 4 plans
 
 Plans:
-- [ ] 01-01-PLAN.md — Design architecture and scenario system interfaces
-- [ ] 01-02-PLAN.md — Extract core engine modules (engine, state, scheduler)
+- [x] 01-01-PLAN.md — Design architecture and scenario system interfaces
+- [x] 01-02-PLAN.md — Extract core engine modules (engine, state, scheduler)
 - [ ] 01-03-PLAN.md — Package software-eng workflows as first scenario
 - [ ] 01-04-PLAN.md — Implement scenario loader and hot-switching
 

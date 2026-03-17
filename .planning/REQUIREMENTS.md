@@ -7,10 +7,10 @@
 
 ### 核心引擎（Core Engine）
 
-- [ ] **CORE-01**: 提取编排引擎到独立模块（questioning → research → roadmap → execute → verify）
-- [ ] **CORE-02**: 提取状态管理系统（STATE.md、ROADMAP.md、检查点机制）
-- [ ] **CORE-03**: 提取 Agent 调度系统（Task() 机制、Agent 生命周期管理）
-- [ ] **CORE-04**: 核心引擎与场景包解耦（通过 manifest.json 接口）
+- [x] **CORE-01**: 提取编排引擎到独立模块（questioning → research → roadmap → execute → verify）
+- [x] **CORE-02**: 提取状态管理系统（STATE.md、ROADMAP.md、检查点机制）
+- [x] **CORE-03**: 提取 Agent 调度系统（Task() 机制、Agent 生命周期管理）
+- [x] **CORE-04**: 核心引擎与场景包解耦（通过 manifest.json 接口）
 
 ### 场景包系统（Scenario System）
 
@@ -89,10 +89,10 @@
 
 | 需求 | 阶段 | 状态 |
 |------|------|------|
-| CORE-01 | Phase 1 | Pending |
-| CORE-02 | Phase 1 | Pending |
-| CORE-03 | Phase 1 | Pending |
-| CORE-04 | Phase 1 | Pending |
+| CORE-01 | Phase 1 | Complete |
+| CORE-02 | Phase 1 | Complete |
+| CORE-03 | Phase 1 | Complete |
+| CORE-04 | Phase 1 | Complete |
 | SCEN-01 | Phase 1 | Complete |
 | SCEN-02 | Phase 1 | Complete |
 | SCEN-03 | Phase 1 | Pending |
