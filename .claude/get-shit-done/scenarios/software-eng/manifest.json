@@ -276,10 +276,6 @@
       "path": "templates/roadmap.md"
     },
     {
-      "name": "plan",
-      "path": "templates/plan.md"
-    },
-    {
       "name": "summary",
       "path": "templates/summary.md"
     },
@@ -293,15 +289,15 @@
     },
     {
       "name": "verification",
-      "path": "templates/verification.md"
+      "path": "templates/verification-report.md"
     },
     {
       "name": "uat",
-      "path": "templates/uat.md"
+      "path": "templates/UAT.md"
     },
     {
-      "name": "milestone-retrospective",
-      "path": "templates/milestone-retrospective.md"
+      "name": "retrospective",
+      "path": "templates/retrospective.md"
     }
   ],
   "references": [
