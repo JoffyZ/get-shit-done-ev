@@ -9,7 +9,7 @@ const { extractFrontmatter } = require('./frontmatter.cjs');
 const { writeStateMd } = require('./state.cjs');
 
 // Delegate to core engine for phase orchestration
-const coreEngine = require('../core/engine.cjs');
+const coreEngine = require('../../core/engine.cjs');
 
 function cmdPhasesList(cwd, options, raw) {
   const phasesDir = path.join(cwd, '.planning', 'phases');

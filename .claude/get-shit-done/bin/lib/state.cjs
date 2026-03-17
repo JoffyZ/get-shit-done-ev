@@ -8,7 +8,7 @@ const { escapeRegex, loadConfig, getMilestoneInfo, getMilestonePhaseFilter, outp
 const { extractFrontmatter, reconstructFrontmatter } = require('./frontmatter.cjs');
 
 // Delegate to core state for state management
-const coreState = require('../core/state.cjs');
+const coreState = require('../../core/state.cjs');
 
 // Shared helper: extract a field value from STATE.md content.
 // Supports both **Field:** bold and plain Field: format.

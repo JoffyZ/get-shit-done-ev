@@ -8,7 +8,7 @@ const { execSync } = require('child_process');
 const { MODEL_PROFILES } = require('./model-profiles.cjs');
 
 // Delegate to core scheduler for agent scheduling
-const coreScheduler = require('../core/scheduler.cjs');
+const coreScheduler = require('../../core/scheduler.cjs');
 
 // ─── Path helpers ────────────────────────────────────────────────────────────
 
